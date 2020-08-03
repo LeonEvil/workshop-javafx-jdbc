@@ -2,6 +2,7 @@ package gui;
 
 import java.net.URL;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
@@ -188,11 +189,10 @@ public class SellerFormController implements Initializable {
 		txtEmail.setText(entity.getEmail());
 		Locale.setDefault(Locale.US);
 		txtBaseSalary.setText(String.format("%.2f", entity.getBaseSalary()));
-		/*
-		 * if (entity.getBirthDate() != null) {
-		 * dpBirthDate.setValue(LocalDate.ofInstant(entity.getBirthDate().toInstant(),
-		 * ZoneId.systemDefault())); }
-		 */
+		
+		if (entity.getBirthDate() != null) {
+			dpBirthDate.setValue(LocalDate.ofInstant(entity.getBirthDate().toInstant(), ZoneId.systemDefault())); 
+		}
 		
 		if (entity.getDepartment() == null) {
 			comboBoxDepartment.getSelectionModel().selectFirst();
